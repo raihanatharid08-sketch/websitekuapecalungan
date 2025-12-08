@@ -5,7 +5,9 @@ import { Route, Switch } from "wouter";
 import AdminLayout from "./components/AdminLayout";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import QADetail from "./pages/QADetail";
 import QAList from "./pages/QAList";
 import SubmitQuestion from "./pages/SubmitQuestion";
@@ -17,6 +19,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/login" component={Login} />
       <Route path="/qa" component={QAList} />
       <Route path="/qa/:id" component={QADetail} />
       <Route path="/submit-question" component={SubmitQuestion} />
@@ -56,10 +59,12 @@ function App() {
         defaultTheme="light"
         // switchable
       >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        <AuthProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </AuthProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

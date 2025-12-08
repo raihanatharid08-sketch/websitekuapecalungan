@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { useSupabaseAuth } from "@/hooks/useSupabaseAuth";
+import { useAuth } from "@/contexts/AuthContext";
+import { useEffect } from "react";
+import { toast } from "sonner";
 import { BookOpen, LayoutDashboard, LogOut, Menu, MessageSquare, Users, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
@@ -9,14 +11,37 @@ interface AdminLayoutProps {
 }
 
 export default function AdminLayout({ children }: AdminLayoutProps) {
-  const [location] = useLocation();
-  const { user, signOut } = useSupabaseAuth();
+  const [location, setLocation] = useLocation();
+  const { user, loading, signOut } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    if (!loading && !user) {
+      toast.error("Silakan login terlebih dahulu");
+      setLocation("/login");
+    }
+  }, [user, loading, setLocation]);
 
   const handleSignOut = async () => {
     await signOut();
-    window.location.href = "/";
+    toast.success("Logout berhasil");
+    setLocation("/login");
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+          <p className="mt-4 text-muted-foreground">Memuat...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null;
+  }
 
   const navItems = [
     {
