@@ -2,17 +2,41 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
+import AdminLayout from "./components/AdminLayout";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import QADetail from "./pages/QADetail";
+import QAList from "./pages/QAList";
+import SubmitQuestion from "./pages/SubmitQuestion";
+import AdminDashboard from "./pages/admin/Dashboard";
+import AdminQuestions from "./pages/admin/Questions";
 
 function Router() {
-  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
+      <Route path="/" component={Home} />
+      <Route path="/qa" component={QAList} />
+      <Route path="/qa/:id" component={QADetail} />
+      <Route path="/submit-question" component={SubmitQuestion} />
+      
+      {/* Admin Routes */}
+      <Route path="/admin">
+        {() => (
+          <AdminLayout>
+            <AdminDashboard />
+          </AdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/questions">
+        {() => (
+          <AdminLayout>
+            <AdminQuestions />
+          </AdminLayout>
+        )}
+      </Route>
+      
+      <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );

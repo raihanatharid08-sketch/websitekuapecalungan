@@ -10,10 +10,9 @@ export default function Header() {
   const navItems = [
     { label: "Beranda", href: "/" },
     { label: "Tanya Jawab", href: "/qa" },
-    { label: "Layanan", href: "/layanan" },
-    { label: "Tentang Kami", href: "/tentang" },
-    { label: "Kontak", href: "/kontak" },
-    { label: "Berita", href: "/berita" },
+    { label: "Layanan", href: "/#layanan" },
+    { label: "Tentang Kami", href: "/#tentang" },
+    { label: "Kontak", href: "/#kontak" },
   ];
 
   return (
@@ -52,9 +51,11 @@ export default function Header() {
             <Button variant="ghost" size="icon" className="hidden md:flex">
               <Search className="h-5 w-5" />
             </Button>
-            <Button className="hidden md:flex font-body">
-              Ajukan Pertanyaan
-            </Button>
+            <Link href="/submit-question">
+              <Button className="hidden md:flex font-body">
+                Ajukan Pertanyaan
+              </Button>
+            </Link>
             
             {/* Mobile Menu Toggle */}
             <Button
@@ -83,9 +84,11 @@ export default function Header() {
                   </Button>
                 </Link>
               ))}
-              <Button className="w-full mt-2 font-body">
-                Ajukan Pertanyaan
-              </Button>
+              <Link href="/submit-question">
+                <Button className="w-full mt-2 font-body" onClick={() => setIsMenuOpen(false)}>
+                  Ajukan Pertanyaan
+                </Button>
+              </Link>
             </div>
           </nav>
         )}

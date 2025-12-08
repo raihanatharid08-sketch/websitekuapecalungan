@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Link } from "wouter";
 
 export default function HeroSection() {
   return (
@@ -37,12 +38,16 @@ export default function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="text-base font-body group">
-                Mulai Bertanya Sekarang
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <Button size="lg" className="text-base font-body group" asChild>
+                <Link href="/submit-question">
+                  Mulai Bertanya Sekarang
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
-              <Button size="lg" variant="outline" className="text-base font-body">
-                Pelajari Lebih Lanjut
+              <Button size="lg" variant="outline" className="text-base font-body" asChild>
+                <Link href="/qa">
+                  Lihat Q&A
+                </Link>
               </Button>
             </div>
 

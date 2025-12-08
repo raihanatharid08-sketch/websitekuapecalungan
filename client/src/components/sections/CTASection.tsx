@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail } from "lucide-react";
+import { Link } from "wouter";
 
 export default function CTASection() {
   return (
@@ -30,12 +31,16 @@ export default function CTASection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="text-base font-body group min-w-[200px]">
-              Ajukan Pertanyaan Sekarang
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            <Button size="lg" className="text-base font-body group min-w-[200px]" asChild>
+              <Link href="/submit-question">
+                Ajukan Pertanyaan Sekarang
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" className="text-base font-body min-w-[200px]">
-              Hubungi Kami
+            <Button size="lg" variant="outline" className="text-base font-body min-w-[200px]" asChild>
+              <Link href="/#kontak">
+                Hubungi Kami
+              </Link>
             </Button>
           </div>
 
