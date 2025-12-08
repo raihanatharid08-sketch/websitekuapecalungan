@@ -52,3 +52,12 @@
 - [ ] User management
 - [x] Admin authentication and authorization
 - [x] Admin layout with sidebar navigation
+
+## Supabase Database Setup
+- [x] Create complete SQL schema file (supabase-complete-schema.sql)
+- [x] Create comprehensive setup guide (SUPABASE_SETUP.md)
+- [x] Document all tables, indexes, and functions
+- [x] Document Row Level Security policies
+- [x] Include initial data for categories and madhabs
+- [ ] User needs to run SQL in Supabase SQL Editor
+- [ ] Verify database connection from application
