@@ -2,23 +2,27 @@ import { CheckCircle2, Clock, Mail, MessageSquare } from "lucide-react";
 
 interface StepProps {
   number: number;
-  icon: React.ReactNode;
+  iconImage: string;
   title: string;
   description: string;
   isLast?: boolean;
 }
 
-function Step({ number, icon, title, description, isLast }: StepProps) {
+function Step({ number, iconImage, title, description, isLast }: StepProps) {
   return (
     <div className="relative">
       <div className="flex flex-col items-center text-center">
         {/* Step Number Badge */}
         <div className="relative mb-6">
-          <div className="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center shadow-lg">
-            {icon}
+          <div className="w-24 h-24 bg-primary/10 rounded-2xl flex items-center justify-center shadow-lg p-3">
+            <img 
+              src={iconImage} 
+              alt={title}
+              className="w-full h-full object-contain"
+            />
           </div>
-          <div className="absolute -top-2 -right-2 w-8 h-8 bg-secondary rounded-full flex items-center justify-center border-4 border-background">
-            <span className="text-xs font-bold text-secondary-foreground">{number}</span>
+          <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center border-4 border-background">
+            <span className="text-xs font-bold text-primary-foreground">{number}</span>
           </div>
         </div>
 
@@ -57,25 +61,25 @@ export default function HowItWorksSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative">
           <Step
             number={1}
-            icon={<MessageSquare className="h-10 w-10 text-primary-foreground" />}
+            iconImage="/step1-icon.png"
             title="Ajukan Pertanyaan"
             description="Isi formulir dengan pertanyaan fiqih Anda secara detail dan jelas"
           />
           <Step
             number={2}
-            icon={<CheckCircle2 className="h-10 w-10 text-primary-foreground" />}
+            iconImage="/step2-icon.png"
             title="Verifikasi Pertanyaan"
             description="Tim kami memverifikasi dan meneruskan pertanyaan Anda kepada ulama"
           />
           <Step
             number={3}
-            icon={<Clock className="h-10 w-10 text-primary-foreground" />}
+            iconImage="/step3-icon.png"
             title="Tunggu Jawaban"
             description="Ulama kami menyiapkan jawaban berdasarkan sumber Islam yang terpercaya"
           />
           <Step
             number={4}
-            icon={<Mail className="h-10 w-10 text-primary-foreground" />}
+            iconImage="/step4-icon.png"
             title="Terima Jawaban"
             description="Dapatkan jawaban melalui email dan lihat di website kami"
             isLast

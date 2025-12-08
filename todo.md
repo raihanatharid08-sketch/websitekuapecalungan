@@ -61,3 +61,8 @@
 - [x] Include initial data for categories and madhabs
 - [ ] User needs to run SQL in Supabase SQL Editor
 - [ ] Verify database connection from application
+
+## Custom Icons Update
+- [x] Download custom icon images from Cloudinary
+- [x] Replace How It Works section icons with custom images
+- [x] Test responsive display of custom icons
