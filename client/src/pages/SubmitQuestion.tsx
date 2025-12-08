@@ -52,15 +52,24 @@ export default function SubmitQuestion() {
     setLoading(true);
 
     try {
-      const { error } = await supabase.from("questions").insert([
+      // Generate unique access token
+      const accessToken = crypto.randomUUID();
+
+      const { data, error } = await supabase.from("questions").insert([
         {
           ...formData,
           status: "submitted",
           views_count: 0,
+          access_token: accessToken,
+          is_public: false,
         },
-      ]);
+      ]).select();
 
       if (error) throw error;
+
+      // Store access URL for display
+      const accessUrl = `${window.location.origin}/my-question/${accessToken}`;
+      localStorage.setItem('lastQuestionAccessUrl', accessUrl);
 
       setSubmitted(true);
       toast.success("Pertanyaan berhasil dikirim!");
@@ -102,13 +111,25 @@ export default function SubmitQuestion() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  {/* Access Link */}
+                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
+                    <p className="font-semibold mb-2 text-sm">Link Akses Pertanyaan Anda:</p>
+                    <div className="bg-background rounded p-3 mb-2 break-all text-sm font-mono">
+                      {localStorage.getItem('lastQuestionAccessUrl')}
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      ⚠️ Simpan link ini! Anda akan membutuhkannya untuk melihat status dan jawaban pertanyaan Anda.
+                      Link juga akan dikirim ke email Anda.
+                    </p>
+                  </div>
+
                   <div className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground">
                     <p className="font-semibold mb-2">Apa yang terjadi selanjutnya?</p>
                     <ol className="list-decimal list-inside space-y-1 text-left">
                       <li>Tim kami akan memverifikasi pertanyaan Anda (1 hari kerja)</li>
                       <li>Pertanyaan akan diteruskan kepada ulama yang kompeten</li>
                       <li>Jawaban akan dikirim ke email Anda (2-3 hari kerja)</li>
-                      <li>Pertanyaan dan jawaban akan dipublikasikan di website</li>
+                      <li>Anda bisa cek status via link di atas kapan saja</li>
                     </ol>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">

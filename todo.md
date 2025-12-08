@@ -66,3 +66,14 @@
 - [x] Download custom icon images from Cloudinary
 - [x] Replace How It Works section icons with custom images
 - [x] Test responsive display of custom icons
+
+## Privacy & FAQ System Implementation
+- [x] Update database schema: add is_public and access_token columns
+- [x] Update QAList page to only show public FAQ questions
+- [x] Create MyQuestion page for private question access via token
+- [x] Update SubmitQuestion to generate access_token and show access link
+- [x] Add "Publish as FAQ" toggle in Admin Questions page
+- [x] Update RLS policies for public/private access
+- [x] FAQ display is anonymous (no user info shown)
+- [x] Update supabase-complete-schema.sql with new fields
+- [x] Add MyQuestion route to App.tsx

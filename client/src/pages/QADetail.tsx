@@ -61,11 +61,12 @@ export default function QADetail() {
       `)
       .eq("id", id)
       .eq("status", "answered")
+      .eq("is_public", true)
       .single();
 
     if (error) {
       console.error("Error loading question:", error);
-      toast.error("Pertanyaan tidak ditemukan");
+      toast.error("Pertanyaan tidak ditemukan atau tidak dipublikasikan");
     } else {
       setQuestion(data);
     }

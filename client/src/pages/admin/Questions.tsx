@@ -32,6 +32,8 @@ interface Question {
   contact_email: string;
   views_count: number;
   created_at: string;
+  is_public: boolean;
+  access_token: string;
   categories: {
     name: string;
   };
@@ -190,6 +192,20 @@ export default function AdminQuestions() {
     }
   };
 
+  const handleTogglePublic = async (id: string, isPublic: boolean) => {
+    const { error } = await supabase
+      .from("questions")
+      .update({ is_public: isPublic })
+      .eq("id", id);
+
+    if (error) {
+      toast.error("Gagal mengubah status publikasi");
+    } else {
+      toast.success(isPublic ? "Pertanyaan dipublikasikan sebagai FAQ" : "Pertanyaan dibuat privat");
+      loadQuestions();
+    }
+  };
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat("id-ID", {
@@ -314,10 +330,19 @@ export default function AdminQuestions() {
                         Jawab
                       </Button>
                     )}
+                    {question.status === "answered" && (
+                      <Button
+                        size="sm"
+                        variant={question.is_public ? "default" : "outline"}
+                        onClick={() => handleTogglePublic(question.id, !question.is_public)}
+                      >
+                        {question.is_public ? "✓ Publik (FAQ)" : "Jadikan FAQ"}
+                      </Button>
+                    )}
                     <Button
                       size="sm"
                       variant="outline"
-                      onClick={() => window.open(`/qa/${question.id}`, "_blank")}
+                      onClick={() => window.open(`/my-question/${question.access_token}`, "_blank")}
                     >
                       <Eye className="mr-2 h-4 w-4" />
                       Lihat

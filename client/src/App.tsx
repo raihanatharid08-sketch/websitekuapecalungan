@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import QADetail from "./pages/QADetail";
 import QAList from "./pages/QAList";
 import SubmitQuestion from "./pages/SubmitQuestion";
+import MyQuestion from "./pages/MyQuestion";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminQuestions from "./pages/admin/Questions";
 
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/qa" component={QAList} />
       <Route path="/qa/:id" component={QADetail} />
       <Route path="/submit-question" component={SubmitQuestion} />
+      <Route path="/my-question/:token" component={MyQuestion} />
       
       {/* Admin Routes */}
       <Route path="/admin">

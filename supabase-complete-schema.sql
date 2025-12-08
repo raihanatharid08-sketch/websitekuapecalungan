@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS questions (
   urgency_level VARCHAR(50) DEFAULT 'medium' CHECK (urgency_level IN ('low', 'medium', 'high')),
   contact_email VARCHAR(255) NOT NULL,
   views_count INT DEFAULT 0,
+  is_public BOOLEAN DEFAULT FALSE,
+  access_token VARCHAR(255) UNIQUE,
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
@@ -83,6 +85,8 @@ CREATE TABLE IF NOT EXISTS attachments (
 CREATE INDEX IF NOT EXISTS idx_questions_status ON questions(status);
 CREATE INDEX IF NOT EXISTS idx_questions_category ON questions(category_id);
 CREATE INDEX IF NOT EXISTS idx_questions_created_at ON questions(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_questions_is_public ON questions(is_public);
+CREATE INDEX IF NOT EXISTS idx_questions_access_token ON questions(access_token);
 CREATE INDEX IF NOT EXISTS idx_answers_question ON answers(question_id);
 CREATE INDEX IF NOT EXISTS idx_answers_status ON answers(status);
 CREATE INDEX IF NOT EXISTS idx_answers_published_at ON answers(published_at DESC);
@@ -129,10 +133,15 @@ ON madhabs FOR SELECT
 USING (true);
 
 -- Questions policies
-DROP POLICY IF EXISTS "Users can view published questions" ON questions;
-CREATE POLICY "Users can view published questions"
+DROP POLICY IF EXISTS "Anyone can view public FAQ questions" ON questions;
+CREATE POLICY "Anyone can view public FAQ questions"
 ON questions FOR SELECT
-USING (status = 'answered' OR user_id = auth.uid());
+USING (is_public = TRUE AND status = 'answered');
+
+DROP POLICY IF EXISTS "Users can view their own questions" ON questions;
+CREATE POLICY "Users can view their own questions"
+ON questions FOR SELECT
+USING (user_id = auth.uid() OR contact_email = current_setting('request.jwt.claims', true)::json->>'email');
 
 DROP POLICY IF EXISTS "Anyone can insert questions" ON questions;
 CREATE POLICY "Anyone can insert questions"

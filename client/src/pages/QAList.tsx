@@ -64,6 +64,7 @@ export default function QAList() {
         answers (id, created_at)
       `)
       .eq("status", "answered")
+      .eq("is_public", true)
       .order("created_at", { ascending: false });
 
     if (selectedCategory !== "all") {
@@ -103,10 +104,10 @@ export default function QAList() {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="font-heading text-3xl md:text-4xl font-bold mb-4">
-              Tanya Jawab Fiqih
+              FAQ - Pertanyaan yang Sering Diajukan
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Temukan jawaban atas pertanyaan fiqih yang telah dijawab oleh ulama kami
+              Koleksi pertanyaan dan jawaban fiqih pilihan dari ulama kami untuk referensi umum
             </p>
           </div>
 
@@ -156,14 +157,14 @@ export default function QAList() {
               <Card>
                 <CardContent className="text-center py-12">
                   <MessageSquare className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-lg font-semibold mb-2">Tidak ada pertanyaan ditemukan</p>
+                  <p className="text-lg font-semibold mb-2">Tidak ada FAQ ditemukan</p>
                   <p className="text-muted-foreground mb-6">
                     {searchQuery
                       ? "Coba kata kunci lain atau ubah filter kategori"
-                      : "Belum ada pertanyaan yang dijawab"}
+                      : "Belum ada FAQ yang dipublikasikan"}
                   </p>
                   <Button asChild>
-                    <Link href="/submit-question">Ajukan Pertanyaan Pertama</Link>
+                    <Link href="/submit-question">Ajukan Pertanyaan Anda</Link>
                   </Button>
                 </CardContent>
               </Card>
