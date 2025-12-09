@@ -126,3 +126,14 @@
 - [x] Add route for /materi-fiqih page
 - [x] Add Arabic font (Amiri) for Quran and Hadith text
 - [x] Add pattern background for decorative elements
+
+## Branding & Layout Updates
+- [x] Remove background from Kemenag logo image
+- [x] Replace header logo with Kemenag logo
+- [x] Create and replace favicon with Kemenag logo
+- [x] Remove Services section from landing page
+- [x] Create Location section with Google Maps embed
+- [x] Update navigation to replace Layanan with Lokasi
+- [x] Remove hero image from Hero section
+- [x] Center hero text content
+- [x] Adjust hero section layout for centered design

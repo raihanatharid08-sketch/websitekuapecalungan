@@ -11,7 +11,7 @@ export default function Header() {
     { label: "Beranda", href: "/" },
     { label: "Materi Fiqih", href: "/materi-fiqih" },
     { label: "Tanya Jawab", href: "/qa" },
-    { label: "Layanan", href: "/#layanan" },
+    { label: "Lokasi", href: "/#lokasi" },
     { label: "Kontak", href: "/#kontak" },
   ];
 
@@ -21,9 +21,11 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo and Brand */}
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">K</span>
-            </div>
+            <img 
+              src="/kemenag-logo.png" 
+              alt="Logo Kementerian Agama" 
+              className="h-12 w-12 object-contain"
+            />
             <div className="hidden sm:block">
               <div className="font-heading font-bold text-lg leading-tight text-foreground">
                 KUA Pecalungan
