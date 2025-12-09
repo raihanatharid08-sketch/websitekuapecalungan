@@ -1,4 +1,4 @@
-import { Facebook, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Footer() {
@@ -72,13 +72,28 @@ export default function Footer() {
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-primary" />
                 <span>Jl. Raya Pecalungan, Kec. Pecalungan, Kab. Batang, Jawa Tengah</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2 text-sm">
                 <Phone className="h-4 w-4 flex-shrink-0 text-primary" />
-                <span>(0285) 123456</span>
+                <a href="tel:+6285117737315" className="text-muted-foreground hover:text-primary transition-colors">
+                  +62 851-1773-7315
+                </a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2 text-sm">
+                <MessageCircle className="h-4 w-4 flex-shrink-0 text-[#25D366]" />
+                <a 
+                  href="https://wa.me/6285117737315?text=Assalamualaikum%2C%20saya%20ingin%20berkonsultasi%20mengenai%20hukum%20Islam." 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-[#25D366] transition-colors"
+                >
+                  WhatsApp
+                </a>
+              </li>
+              <li className="flex items-center gap-2 text-sm">
                 <Mail className="h-4 w-4 flex-shrink-0 text-primary" />
-                <span>kua.pecalungan@kemenag.go.id</span>
+                <a href="mailto:kuapecalungan15@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  kuapecalungan15@gmail.com
+                </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Facebook className="h-4 w-4 flex-shrink-0 text-primary" />
