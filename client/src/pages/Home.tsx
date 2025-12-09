@@ -5,7 +5,7 @@ import CTASection from "@/components/sections/CTASection";
 import FAQSection from "@/components/sections/FAQSection";
 import HeroSection from "@/components/sections/HeroSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
-import StatsSection from "@/components/sections/StatsSection";
+
 
 
 export default function Home() {
@@ -14,7 +14,6 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-        <StatsSection />
         <HowItWorksSection />
         <FAQSection />
         <CTASection />

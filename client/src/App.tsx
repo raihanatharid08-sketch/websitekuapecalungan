@@ -9,12 +9,10 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import FiqihMaterials from "./pages/FiqihMaterials";
-import QADetail from "./pages/QADetail";
-import QAList from "./pages/QAList";
 import SubmitQuestion from "./pages/SubmitQuestion";
 import MyQuestion from "./pages/MyQuestion";
 import Location from "./pages/Location";
-import Contact from "./pages/Contact";
+import AboutUs from "./pages/AboutUs";
 import Register from "./pages/Register";
 import UserLogin from "./pages/UserLogin";
 import UserDashboard from "./pages/UserDashboard";
@@ -26,14 +24,13 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/lokasi" component={Location} />
-      <Route path="/kontak" component={Contact} />
+      <Route path="/tentang-kami" component={AboutUs} />
       <Route path="/user/register" component={Register} />
       <Route path="/user/login" component={UserLogin} />
       <Route path="/dashboard" component={UserDashboard} />
       <Route path="/login" component={Login} />
       <Route path="/materi-fiqih" component={FiqihMaterials} />
-      <Route path="/qa" component={QAList} />
-      <Route path="/qa/:id" component={QADetail} />
+
       <Route path="/submit-question" component={SubmitQuestion} />
       <Route path="/my-question/:token" component={MyQuestion} />
       

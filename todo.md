@@ -154,3 +154,19 @@
 - [x] Create user register page (/user/register)
 - [x] Update submit question flow to require login
 - [x] Add all new routes to App.tsx
+
+## UI Cleanup & Privacy Enhancement
+- [x] Remove StatsSection from Home page
+- [x] Remove "Ajukan Pertanyaan" button from header/top area
+- [x] Delete QAList.tsx (public Q&A list page)
+- [x] Delete QADetail.tsx (public Q&A detail page)
+- [x] Delete Contact.tsx (replaced with About Us)
+- [x] Create About Us page (/tentang-kami)
+- [x] Replace Contact page with About Us page
+- [x] Update Header navigation: "Kontak" → "Tentang Kami"
+- [x] Update Header navigation: "Tanya Jawab" → "Pertanyaan Saya" (links to /dashboard, requires login)
+- [x] Remove /qa and /qa/:id routes from App.tsx
+- [x] Update all internal links that point to /qa or /submit-question
+- [x] Update HeroSection buttons to link to /dashboard
+- [x] Update CTASection buttons to link to /dashboard and /tentang-kami
+- [x] All questions are now fully private (no public Q&A list)

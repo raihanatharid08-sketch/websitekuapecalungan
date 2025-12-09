@@ -10,9 +10,9 @@ export default function Header() {
   const navItems = [
     { label: "Beranda", href: "/" },
     { label: "Materi Fiqih", href: "/materi-fiqih" },
-    { label: "Tanya Jawab", href: "/qa" },
+    { label: "Pertanyaan Saya", href: "/dashboard" },
     { label: "Lokasi", href: "/lokasi" },
-    { label: "Kontak", href: "/kontak" },
+    { label: "Tentang Kami", href: "/tentang-kami" },
   ];
 
   return (
@@ -53,11 +53,6 @@ export default function Header() {
             <Button variant="ghost" size="icon" className="hidden md:flex">
               <Search className="h-5 w-5" />
             </Button>
-            <Link href="/submit-question">
-              <Button className="hidden md:flex font-body">
-                Ajukan Pertanyaan
-              </Button>
-            </Link>
             
             {/* Mobile Menu Toggle */}
             <Button

@@ -32,14 +32,14 @@ export default function CTASection() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button size="lg" className="text-base font-body group min-w-[200px]" asChild>
-              <Link href="/submit-question">
+              <Link href="/dashboard">
                 Ajukan Pertanyaan Sekarang
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="text-base font-body min-w-[200px]" asChild>
-              <Link href="/#kontak">
-                Hubungi Kami
+              <Link href="/tentang-kami">
+                Tentang Kami
               </Link>
             </Button>
           </div>
