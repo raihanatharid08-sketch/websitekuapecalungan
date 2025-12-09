@@ -9,9 +9,9 @@ export default function Header() {
 
   const navItems = [
     { label: "Beranda", href: "/" },
+    { label: "Materi Fiqih", href: "/materi-fiqih" },
     { label: "Tanya Jawab", href: "/qa" },
     { label: "Layanan", href: "/#layanan" },
-    { label: "Tentang Kami", href: "/#tentang" },
     { label: "Kontak", href: "/#kontak" },
   ];
 

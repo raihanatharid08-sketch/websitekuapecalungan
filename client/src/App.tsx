@@ -8,6 +8,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import FiqihMaterials from "./pages/FiqihMaterials";
 import QADetail from "./pages/QADetail";
 import QAList from "./pages/QAList";
 import SubmitQuestion from "./pages/SubmitQuestion";
@@ -20,6 +21,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/login" component={Login} />
+      <Route path="/materi-fiqih" component={FiqihMaterials} />
       <Route path="/qa" component={QAList} />
       <Route path="/qa/:id" component={QADetail} />
       <Route path="/submit-question" component={SubmitQuestion} />
