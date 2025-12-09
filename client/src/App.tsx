@@ -13,6 +13,11 @@ import QADetail from "./pages/QADetail";
 import QAList from "./pages/QAList";
 import SubmitQuestion from "./pages/SubmitQuestion";
 import MyQuestion from "./pages/MyQuestion";
+import Location from "./pages/Location";
+import Contact from "./pages/Contact";
+import Register from "./pages/Register";
+import UserLogin from "./pages/UserLogin";
+import UserDashboard from "./pages/UserDashboard";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminQuestions from "./pages/admin/Questions";
 
@@ -20,6 +25,11 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/lokasi" component={Location} />
+      <Route path="/kontak" component={Contact} />
+      <Route path="/user/register" component={Register} />
+      <Route path="/user/login" component={UserLogin} />
+      <Route path="/dashboard" component={UserDashboard} />
       <Route path="/login" component={Login} />
       <Route path="/materi-fiqih" component={FiqihMaterials} />
       <Route path="/qa" component={QAList} />

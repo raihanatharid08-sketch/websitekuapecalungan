@@ -10,6 +10,8 @@ import { supabase } from "@/lib/supabase";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
+import { useLocation } from "wouter";
 
 interface Category {
   id: string;
@@ -18,6 +20,8 @@ interface Category {
 }
 
 export default function SubmitQuestion() {
+  const { user, loading: authLoading } = useAuth();
+  const [, setLocation] = useLocation();
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -30,8 +34,17 @@ export default function SubmitQuestion() {
   });
 
   useEffect(() => {
-    loadCategories();
-  }, []);
+    if (!authLoading && !user) {
+      toast.error("Silakan login terlebih dahulu");
+      setLocation("/user/login");
+    }
+  }, [user, authLoading, setLocation]);
+
+  useEffect(() => {
+    if (user) {
+      loadCategories();
+    }
+  }, [user]);
 
   const loadCategories = async () => {
     const { data, error } = await supabase
@@ -58,6 +71,7 @@ export default function SubmitQuestion() {
       const { data, error } = await supabase.from("questions").insert([
         {
           ...formData,
+          user_id: user?.id,
           status: "submitted",
           views_count: 0,
           access_token: accessToken,

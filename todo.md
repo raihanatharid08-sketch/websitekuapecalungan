@@ -137,3 +137,20 @@
 - [x] Remove hero image from Hero section
 - [x] Center hero text content
 - [x] Adjust hero section layout for centered design
+
+## Separate Pages & User Authentication
+- [x] Create standalone Location page (/lokasi)
+- [x] Create standalone Contact page (/kontak)
+- [x] Remove Location and Contact sections from Home page
+- [x] Update navigation links to point to separate pages
+- [x] Implement user registration and login
+- [x] Protect question submission with user authentication
+- [x] Create User Dashboard (/dashboard) for logged-in users
+- [x] Show only user's own questions in dashboard
+- [x] Update admin panel to show user info privately
+- [x] Ensure published FAQ remains anonymous (no user names)
+- [ ] Add login/register buttons to header
+- [x] Create user login page (/user/login)
+- [x] Create user register page (/user/register)
+- [x] Update submit question flow to require login
+- [x] Add all new routes to App.tsx
