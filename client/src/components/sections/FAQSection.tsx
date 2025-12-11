@@ -34,13 +34,15 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="container">
+    <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+      {/* Background Decoration */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="container relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in-up">
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              Pertanyaan yang Sering Diajukan
+              <span className="gradient-text">Pertanyaan</span> yang Sering Diajukan
             </h2>
             <p className="text-lg text-muted-foreground">
               Temukan jawaban untuk pertanyaan umum tentang layanan kami
@@ -53,7 +55,7 @@ export default function FAQSection() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="border border-border rounded-lg px-6 bg-card"
+                className="border border-border rounded-lg px-6 bg-card/80 backdrop-blur-sm hover:shadow-md transition-all duration-300"
               >
                 <AccordionTrigger className="font-heading text-lg font-semibold text-left hover:no-underline py-5">
                   {faq.question}

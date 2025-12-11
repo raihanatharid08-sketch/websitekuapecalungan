@@ -5,22 +5,23 @@ import { Link } from "wouter";
 export default function CTASection() {
   return (
     <section className="py-16 md:py-24 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 pattern-bg opacity-30" />
+      {/* Animated Background */}
+      <div className="absolute inset-0 pattern-bg opacity-20 animate-gentle-float" />
       
-      {/* Gradient Overlay */}
+      {/* Gradient Overlay with Glow */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/50 to-secondary/10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl animate-pulse" />
 
       <div className="container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Icon */}
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl mb-6 glow animate-scale-in">
             <Mail className="h-8 w-8 text-primary" />
           </div>
 
           {/* Heading */}
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Siap Bertanya?
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mb-4 animate-fade-in-up">
+            Siap <span className="gradient-text">Bertanya</span>?
           </h2>
 
           {/* Description */}
@@ -44,22 +45,7 @@ export default function CTASection() {
             </Button>
           </div>
 
-          {/* Trust Badge */}
-          <div className="mt-12 inline-flex items-center gap-2 px-6 py-3 bg-card/80 backdrop-blur-sm rounded-full border border-border shadow-sm">
-            <div className="flex -space-x-2">
-              {[1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="w-8 h-8 rounded-full bg-primary/20 border-2 border-background flex items-center justify-center"
-                >
-                  <span className="text-xs font-semibold text-primary">✓</span>
-                </div>
-              ))}
-            </div>
-            <span className="text-sm text-muted-foreground">
-              Bergabung dengan <strong className="text-foreground">10,000+</strong> pengguna lainnya
-            </span>
-          </div>
+
         </div>
       </div>
     </section>
