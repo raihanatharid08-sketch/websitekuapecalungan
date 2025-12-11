@@ -61,7 +61,7 @@
   --chart-4: oklch(0.40 0.14 164);
   --chart-5: oklch(0.35 0.14 164);
   --radius: 0.75rem;
-  --background: oklch(0.99 0.002 85); /* Warm Off-White #F9FAFB */
+  --background: oklch(0.97 0.005 85); /* Soft Cream with subtle warmth */
   --foreground: oklch(0.25 0.01 264); /* Charcoal Grey #1F2937 */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.25 0.01 264);
@@ -124,8 +124,10 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: var(--font-body);
+    background: linear-gradient(135deg, oklch(0.97 0.005 85) 0%, oklch(0.95 0.01 164 / 0.3) 50%, oklch(0.97 0.008 85) 100%);
+    background-attachment: fixed;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
@@ -228,4 +230,65 @@ html {
 
 .animate-gentle-float {
   animation: gentle-float 3s ease-in-out infinite;
+}
+
+/* Gradient shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, oklch(0.42 0.14 164 / 0.1), transparent);
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Fade in from bottom */
+@keyframes fade-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-bottom {
+  animation: fade-in-bottom 0.8s ease-out;
+}
+
+/* Scale in */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out;
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 20px oklch(0.42 0.14 164 / 0.3), 0 0 40px oklch(0.42 0.14 164 / 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, oklch(0.42 0.14 164), oklch(0.75 0.10 85));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

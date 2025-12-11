@@ -4,12 +4,13 @@ import { Link } from "wouter";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 pattern-bg opacity-30" />
+    <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/10">
+      {/* Animated Background Pattern */}
+      <div className="absolute inset-0 pattern-bg opacity-20 animate-gentle-float" />
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-secondary/10" />
+      {/* Decorative Circles */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}} />
 
       <div className="container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -22,7 +23,7 @@ export default function HeroSection() {
 
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Konsultasi Hukum Islam Terpercaya Dari{" "}
-              <span className="text-primary">KUA Pecalungan</span>
+              <span className="gradient-text">KUA Pecalungan</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
@@ -44,27 +45,10 @@ export default function HeroSection() {
               </Button>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center justify-center gap-8 pt-4">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-primary/20 border-2 border-background flex items-center justify-center"
-                    >
-                      <span className="text-xs font-semibold text-primary">U</span>
-                    </div>
-                  ))}
-                </div>
-                <span className="text-sm text-muted-foreground">
-                  Dipercaya oleh <strong className="text-foreground">10,000+</strong> masyarakat
-                </span>
-              </div>
-            </div>
+
 
             {/* Response Time Card */}
-            <div className="inline-flex items-center gap-4 bg-card/95 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border mt-8">
+            <div className="inline-flex items-center gap-4 bg-card/95 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border mt-8 glow animate-scale-in">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                 <CheckCircle2 className="h-6 w-6 text-primary" />
               </div>
