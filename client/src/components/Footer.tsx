@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* About Section */}
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -24,44 +24,6 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground leading-relaxed">
               Kantor Urusan Agama Kecamatan Pecalungan memberikan pelayanan keagamaan yang berkualitas, transparan, dan akuntabel kepada masyarakat.
             </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-heading font-semibold text-base mb-4">Tautan Cepat</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/qa" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Tanya Jawab Fiqih
-                </Link>
-              </li>
-              <li>
-                <Link href="/layanan" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Layanan Kami
-                </Link>
-              </li>
-              <li>
-                <Link href="/tentang" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Tentang Kami
-                </Link>
-              </li>
-              <li>
-                <Link href="/berita" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Berita & Artikel
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="font-heading font-semibold text-base mb-4">Layanan</h3>
-            <ul className="space-y-2">
-              <li className="text-sm text-muted-foreground">Pelayanan Nikah</li>
-              <li className="text-sm text-muted-foreground">Konsultasi Syariah</li>
-              <li className="text-sm text-muted-foreground">Bimbingan Keluarga</li>
-              <li className="text-sm text-muted-foreground">Zakat dan Wakaf</li>
-            </ul>
           </div>
 
           {/* Contact Info */}

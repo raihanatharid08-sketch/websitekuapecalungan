@@ -28,8 +28,6 @@ export default function SubmitQuestion() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    category_id: "",
-    urgency_level: "medium",
     contact_email: "",
   });
 
@@ -68,10 +66,19 @@ export default function SubmitQuestion() {
       // Generate unique access token
       const accessToken = crypto.randomUUID();
 
+      // Auto-assign default category and urgency
+      const { data: defaultCategory } = await supabase
+        .from("categories")
+        .select("id")
+        .limit(1)
+        .single();
+
       const { data, error } = await supabase.from("questions").insert([
         {
           ...formData,
           user_id: user?.id,
+          category_id: defaultCategory?.id || null,
+          urgency_level: "medium",
           status: "submitted",
           views_count: 0,
           access_token: accessToken,
@@ -92,8 +99,6 @@ export default function SubmitQuestion() {
       setFormData({
         title: "",
         description: "",
-        category_id: "",
-        urgency_level: "medium",
         contact_email: "",
       });
     } catch (error: any) {
@@ -231,51 +236,6 @@ export default function SubmitQuestion() {
                       Semakin detail pertanyaan Anda, semakin komprehensif jawaban yang akan
                       diberikan
                     </p>
-                  </div>
-
-                  {/* Category */}
-                  <div className="space-y-2">
-                    <Label htmlFor="category">
-                      Kategori <span className="text-destructive">*</span>
-                    </Label>
-                    <Select
-                      value={formData.category_id}
-                      onValueChange={(value) =>
-                        setFormData({ ...formData, category_id: value })
-                      }
-                      required
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Pilih kategori pertanyaan" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {categories.map((category) => (
-                          <SelectItem key={category.id} value={category.id}>
-                            {category.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Urgency Level */}
-                  <div className="space-y-2">
-                    <Label htmlFor="urgency">Tingkat Urgensi</Label>
-                    <Select
-                      value={formData.urgency_level}
-                      onValueChange={(value) =>
-                        setFormData({ ...formData, urgency_level: value })
-                      }
-                    >
-                      <SelectTrigger>
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="low">Rendah (Tidak mendesak)</SelectItem>
-                        <SelectItem value="medium">Sedang (Normal)</SelectItem>
-                        <SelectItem value="high">Tinggi (Mendesak)</SelectItem>
-                      </SelectContent>
-                    </Select>
                   </div>
 
                   {/* Email */}

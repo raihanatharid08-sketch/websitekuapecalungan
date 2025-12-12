@@ -6,13 +6,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { BookOpen, ChevronRight, Scroll, Sparkles } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { BookOpen, ChevronRight, Scroll, Sparkles, Search } from "lucide-react";
 import { fiqihCategories } from "@/data/fiqihMaterials";
 
 export default function FiqihMaterials() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,20 @@ export default function FiqihMaterials() {
   const topic = selectedTopic && category
     ? category.topics.find(t => t.id === selectedTopic)
     : null;
+
+  // Filter categories based on search query
+  const filteredCategories = fiqihCategories.filter(category => {
+    if (!searchQuery) return true;
+    const query = searchQuery.toLowerCase();
+    return (
+      category.title.toLowerCase().includes(query) ||
+      category.description.toLowerCase().includes(query) ||
+      category.topics.some(topic => 
+        topic.title.toLowerCase().includes(query) ||
+        topic.description.toLowerCase().includes(query)
+      )
+    );
+  });
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -84,13 +100,32 @@ export default function FiqihMaterials() {
                 <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
                   Kategori Materi Fiqih
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
                   Pilih kategori fiqih yang ingin Anda pelajari
                 </p>
+                
+                {/* Search Bar */}
+                <div className="max-w-xl mx-auto">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Input
+                      type="text"
+                      placeholder="Cari kategori atau topik fiqih..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="pl-10 h-12 text-base"
+                    />
+                  </div>
+                  {searchQuery && (
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Ditemukan {filteredCategories.length} kategori
+                    </p>
+                  )}
+                </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                {fiqihCategories.map((category, index) => (
+                {filteredCategories.length > 0 ? filteredCategories.map((category, index) => (
                   <Card 
                     key={category.id}
                     className="group hover:shadow-xl transition-all duration-300 cursor-pointer border-2 hover:border-primary animate-fade-in-up"
@@ -117,7 +152,20 @@ export default function FiqihMaterials() {
                       </div>
                     </CardContent>
                   </Card>
-                ))}
+                )) : (
+                  <div className="col-span-full text-center py-12">
+                    <p className="text-lg text-muted-foreground">
+                      Tidak ada kategori yang cocok dengan pencarian "{searchQuery}"
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      className="mt-4"
+                      onClick={() => setSearchQuery("")}
+                    >
+                      Reset Pencarian
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
           </section>

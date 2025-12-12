@@ -1,0 +1,40 @@
+ENVIRONMENT VARIABLES UNTUK VERCEL
+===================================
+
+COPY PASTE PERSIS SEPERTI DI BAWAH INI (TANPA SPASI DI AWAL/AKHIR)
+
+---
+
+VARIABLE 1:
+Name (copy ini):
+VITE_SUPABASE_URL
+
+Value (copy ini):
+https://svjcgaeuyojkiksaduxq.supabase.co
+
+---
+
+VARIABLE 2:
+Name (copy ini):
+VITE_SUPABASE_ANON_KEY
+
+Value (copy ini):
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN2amNnYWV1eW9qa2lrc2FkdXhxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4ODAwODcsImV4cCI6MjA3OTQ1NjA4N30.YJ6R8wBkhCQALgzVBtteSZ4q3i60Sa-phMNU6lWz0AM
+
+---
+
+TIPS:
+1. Jangan ada spasi di awal atau akhir nama variable
+2. Jangan ada spasi di awal atau akhir value
+3. Copy paste langsung dari file ini
+4. Jangan ketik manual (bisa typo)
+5. Pastikan tidak ada enter/newline di tengah value
+
+CONTOH YANG SALAH:
+❌ VITE_SUPABASE_URL  (ada spasi di akhir)
+❌  VITE_SUPABASE_URL (ada spasi di awal)
+❌ VITE SUPABASE URL (ada spasi di tengah)
+❌ VITE-SUPABASE-URL (pakai dash, harus underscore)
+
+CONTOH YANG BENAR:
+✅ VITE_SUPABASE_URL (tanpa spasi, pakai underscore)
