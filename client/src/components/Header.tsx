@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 
@@ -50,10 +50,6 @@ export default function Header() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="hidden md:flex">
-              <Search className="h-5 w-5" />
-            </Button>
-            
             {/* Mobile Menu Toggle */}
             <Button
               variant="ghost"
