@@ -24,7 +24,8 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/lokasi" component={Location} />
-      <Route path="/tentang-kami" component={AboutUs} />
+      <Route path="/kontak" component={AboutUs} />
+      <Route path="/tentang-kami" component={AboutUs} /> {/* Redirect old URL */}
       <Route path="/user/register" component={Register} />
       <Route path="/user/login" component={UserLogin} />
       <Route path="/dashboard" component={UserDashboard} />

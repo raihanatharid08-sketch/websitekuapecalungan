@@ -35,9 +35,11 @@ function Step({ number, iconImage, title, description, isLast }: StepProps) {
         </p>
       </div>
 
-      {/* Connector Line (Desktop) */}
+      {/* Connector Line (Desktop) - Behind Icon */}
       {!isLast && (
-        <div className="hidden lg:block absolute top-10 left-1/2 w-full h-0.5 bg-gradient-to-r from-primary via-primary/50 to-transparent" />
+        <div className="hidden lg:block absolute top-12 left-1/2 w-full h-1 bg-gradient-to-r from-primary/30 via-primary/50 to-primary/30 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/70 to-transparent animate-pulse" />
+        </div>
       )}
     </div>
   );
