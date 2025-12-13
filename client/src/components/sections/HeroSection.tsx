@@ -13,9 +13,9 @@ export default function HeroSection() {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}} />
 
       <div className="container relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Content */}
-          <div className="space-y-8 animate-fade-in-up">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="text-center lg:text-left order-2 lg:order-1 space-y-8 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
               <CheckCircle2 className="h-4 w-4 text-primary" />
               <span className="text-sm font-medium text-primary">Terpercaya & Profesional</span>
@@ -56,6 +56,18 @@ export default function HeroSection() {
                 <div className="font-heading font-semibold text-lg">Respon Cepat</div>
                 <div className="text-sm text-muted-foreground">Rata-rata 2-3 hari kerja</div>
               </div>
+            </div>
+          </div>
+
+          {/* Right Image */}
+          <div className="order-1 lg:order-2 flex justify-center animate-fade-in-right">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-3xl" />
+              <img 
+                src="/hero-character.png" 
+                alt="KUA Pecalungan Consultant" 
+                className="relative w-full max-w-md h-auto object-contain drop-shadow-2xl"
+              />
             </div>
           </div>
         </div>

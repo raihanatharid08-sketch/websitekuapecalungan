@@ -13,7 +13,22 @@ export default function CTASection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl animate-pulse" />
 
       <div className="container relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Image */}
+            <div className="flex justify-center animate-fade-in-left">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl" />
+                <img 
+                  src="/consultation-character.png" 
+                  alt="Islamic Consultation" 
+                  className="relative w-full max-w-md h-auto object-contain drop-shadow-2xl rounded-2xl"
+                />
+              </div>
+            </div>
+
+            {/* Right Content */}
+            <div className="text-center lg:text-left">
           {/* Icon */}
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl mb-6 glow animate-scale-in">
             <Mail className="h-8 w-8 text-primary" />
@@ -39,13 +54,13 @@ export default function CTASection() {
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="text-base font-body min-w-[200px]" asChild>
-              <Link href="/tentang-kami">
-                Tentang Kami
+              <Link href="/kontak">
+                Hubungi Kami
               </Link>
             </Button>
           </div>
-
-
+          </div>
+          </div>
         </div>
       </div>
     </section>
