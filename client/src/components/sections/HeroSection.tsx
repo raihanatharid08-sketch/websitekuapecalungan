@@ -64,7 +64,7 @@ export default function HeroSection() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-3xl" />
               <img 
-                src="/hero-character.png" 
+                src="/hero-character-nobg.png" 
                 alt="KUA Pecalungan Consultant" 
                 className="relative w-full max-w-md h-auto object-contain drop-shadow-2xl"
               />
