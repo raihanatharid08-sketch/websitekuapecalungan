@@ -61,14 +61,11 @@ export default function HeroSection() {
 
           {/* Right Image */}
           <div className="order-1 lg:order-2 flex justify-center animate-fade-in-right">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-3xl" />
-              <img 
-                src="/hero-character-nobg.png" 
-                alt="KUA Pecalungan Consultant" 
-                className="relative w-full max-w-md h-auto object-contain drop-shadow-2xl"
-              />
-            </div>
+            <img 
+              src="/hero-character.png" 
+              alt="KUA Pecalungan Consultant" 
+              className="w-full max-w-md h-auto object-contain drop-shadow-2xl rounded-2xl"
+            />
           </div>
         </div>
       </div>
