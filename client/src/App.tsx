@@ -18,6 +18,8 @@ import UserLogin from "./pages/UserLogin";
 import UserDashboard from "./pages/UserDashboard";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminQuestions from "./pages/admin/Questions";
+import AdminCategories from "./pages/admin/Categories";
+import AdminMadhabs from "./pages/admin/Madhabs";
 
 function Router() {
   return (
@@ -47,6 +49,20 @@ function Router() {
         {() => (
           <AdminLayout>
             <AdminQuestions />
+          </AdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/categories">
+        {() => (
+          <AdminLayout>
+            <AdminCategories />
+          </AdminLayout>
+        )}
+      </Route>
+      <Route path="/admin/madhabs">
+        {() => (
+          <AdminLayout>
+            <AdminMadhabs />
           </AdminLayout>
         )}
       </Route>
