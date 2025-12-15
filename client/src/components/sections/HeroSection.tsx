@@ -15,7 +15,7 @@ export default function HeroSection() {
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="text-center lg:text-left order-2 lg:order-1 space-y-8 animate-fade-in-up">
+          <div className="text-center lg:text-left space-y-8 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
               <CheckCircle2 className="h-4 w-4 text-primary" />
               <span className="text-sm font-medium text-primary">Terpercaya & Profesional</span>
@@ -31,7 +31,7 @@ export default function HeroSection() {
               Dapatkan jawaban yang komprehensif berdasarkan Al-Qur'an dan Hadits.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button size="lg" className="text-base font-body group" asChild>
                 <Link href="/dashboard">
                   Mulai Bertanya Sekarang
@@ -60,7 +60,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Image */}
-          <div className="order-1 lg:order-2 flex justify-center animate-fade-in-right">
+          <div className="order-1 lg:order-2 hidden lg:flex justify-center animate-fade-in-right">
             <img 
               src="/hero-character.png" 
               alt="KUA Pecalungan Consultant" 
