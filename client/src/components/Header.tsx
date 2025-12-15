@@ -26,11 +26,11 @@ export default function Header() {
               alt="Logo Kementerian Agama" 
               className="h-12 w-12 object-contain"
             />
-            <div className="hidden sm:block">
-              <div className="font-heading font-bold text-lg leading-tight text-foreground">
+            <div className="flex flex-col">
+              <div className="font-heading font-bold text-base sm:text-lg leading-tight text-foreground">
                 KUA Pecalungan
               </div>
-              <div className="text-xs text-muted-foreground">Kab. Batang</div>
+              <div className="text-[10px] sm:text-xs text-muted-foreground">Kab. Batang</div>
             </div>
           </Link>
 
