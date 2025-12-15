@@ -16,7 +16,7 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left space-y-8 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20 mt-6 lg:mt-0">
               <CheckCircle2 className="h-4 w-4 text-primary" />
               <span className="text-sm font-medium text-primary">Terpercaya & Profesional</span>
             </div>
@@ -48,7 +48,7 @@ export default function HeroSection() {
 
 
             {/* Response Time Card */}
-            <div className="inline-flex items-center gap-4 bg-card/95 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border mt-8 glow animate-scale-in">
+            <div className="inline-flex items-center gap-4 bg-card/95 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border mt-8 lg:mt-8 glow animate-scale-in">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                 <CheckCircle2 className="h-6 w-6 text-primary" />
               </div>
