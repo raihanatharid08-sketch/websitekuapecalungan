@@ -79,10 +79,10 @@ export default function Footer() {
               © {currentYear} KUA Pecalungan. Kementerian Agama Republik Indonesia.
             </p>
             <div className="flex gap-6">
-              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link href="/kebijakan-privasi" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Kebijakan Privasi
               </Link>
-              <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link href="/syarat-ketentuan" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Syarat & Ketentuan
               </Link>
             </div>

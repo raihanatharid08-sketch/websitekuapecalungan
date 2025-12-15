@@ -16,6 +16,9 @@ import { supabase } from "@/lib/supabase";
 import { Users, Edit, Plus, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import ConfirmDialog from "@/components/ConfirmDialog";
+import EmptyState from "@/components/EmptyState";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface Madhab {
   id: number;
@@ -29,6 +32,8 @@ export default function AdminMadhabs() {
   const [loading, setLoading] = useState(true);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingMadhab, setEditingMadhab] = useState<Madhab | null>(null);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [deletingId, setDeletingId] = useState<number | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -60,24 +65,22 @@ export default function AdminMadhabs() {
 
     try {
       if (editingMadhab) {
-        // Update existing madhab
         const { error } = await supabase
           .from("madhabs")
           .update({
             name: formData.name,
-            description: formData.description || null,
+            description: formData.description,
           })
           .eq("id", editingMadhab.id);
 
         if (error) throw error;
-        toast.success("Madhab berhasil diupdate");
+        toast.success("Madhab berhasil diperbarui");
       } else {
-        // Create new madhab
         const { error } = await supabase
           .from("madhabs")
           .insert({
             name: formData.name,
-            description: formData.description || null,
+            description: formData.description,
           });
 
         if (error) throw error;
@@ -103,14 +106,19 @@ export default function AdminMadhabs() {
     setDialogOpen(true);
   };
 
-  const handleDelete = async (id: number) => {
-    if (!confirm("Apakah Anda yakin ingin menghapus madhab ini?")) return;
+  const handleDeleteClick = (id: number) => {
+    setDeletingId(id);
+    setDeleteDialogOpen(true);
+  };
+
+  const handleDeleteConfirm = async () => {
+    if (!deletingId) return;
 
     try {
       const { error } = await supabase
         .from("madhabs")
         .delete()
-        .eq("id", id);
+        .eq("id", deletingId);
 
       if (error) throw error;
       toast.success("Madhab berhasil dihapus");
@@ -118,6 +126,9 @@ export default function AdminMadhabs() {
     } catch (error) {
       console.error("Error deleting madhab:", error);
       toast.error("Gagal menghapus madhab");
+    } finally {
+      setDeleteDialogOpen(false);
+      setDeletingId(null);
     }
   };
 
@@ -129,10 +140,26 @@ export default function AdminMadhabs() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-96">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-          <p className="mt-4 text-muted-foreground">Memuat madhab...</p>
+      <div className="space-y-6">
+        <div>
+          <Skeleton className="h-10 w-64 mb-2" />
+          <Skeleton className="h-5 w-96" />
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {[1, 2, 3, 4].map((i) => (
+            <Card key={i}>
+              <CardHeader>
+                <Skeleton className="h-6 w-32" />
+                <Skeleton className="h-4 w-full mt-2" />
+              </CardHeader>
+              <CardContent>
+                <div className="flex gap-2">
+                  <Skeleton className="h-9 flex-1" />
+                  <Skeleton className="h-9 w-9" />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     );
@@ -169,14 +196,14 @@ export default function AdminMadhabs() {
               </DialogHeader>
               <div className="space-y-4 py-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Nama Madhab *</Label>
+                  <Label htmlFor="name">Nama Madhab</Label>
                   <Input
                     id="name"
+                    placeholder="Contoh: Hanafi"
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    placeholder="Contoh: Syafi'i, Hanafi, Maliki, Hanbali"
                     required
                   />
                 </div>
@@ -184,17 +211,21 @@ export default function AdminMadhabs() {
                   <Label htmlFor="description">Deskripsi</Label>
                   <Textarea
                     id="description"
+                    placeholder="Deskripsi madhab..."
                     value={formData.description}
                     onChange={(e) =>
                       setFormData({ ...formData, description: e.target.value })
                     }
-                    placeholder="Deskripsi singkat tentang madhab ini"
-                    rows={3}
+                    rows={4}
                   />
                 </div>
               </div>
               <DialogFooter>
-                <Button type="button" variant="outline" onClick={handleDialogClose}>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleDialogClose}
+                >
                   Batal
                 </Button>
                 <Button type="submit">
@@ -208,21 +239,17 @@ export default function AdminMadhabs() {
 
       {/* Madhabs List */}
       {madhabs.length === 0 ? (
-        <Card>
-          <CardContent className="flex flex-col items-center justify-center py-12">
-            <Users className="h-12 w-12 text-muted-foreground mb-4" />
-            <h3 className="font-semibold text-lg mb-2">Belum Ada Madhab</h3>
-            <p className="text-muted-foreground text-center mb-4">
-              Mulai dengan menambahkan madhab pertama untuk referensi jawaban fiqih
-            </p>
-            <Button onClick={() => setDialogOpen(true)}>
-              <Plus className="mr-2 h-4 w-4" />
-              Tambah Madhab Pertama
-            </Button>
-          </CardContent>
-        </Card>
+        <EmptyState
+          icon={Users}
+          title="Belum Ada Madhab"
+          description="Mulai dengan menambahkan madhab pertama untuk referensi hukum Islam"
+          action={{
+            label: "Tambah Madhab Pertama",
+            onClick: () => setDialogOpen(true),
+          }}
+        />
       ) : (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {madhabs.map((madhab) => (
             <Card key={madhab.id}>
               <CardHeader>
@@ -255,7 +282,7 @@ export default function AdminMadhabs() {
                     variant="outline"
                     size="sm"
                     className="text-destructive hover:text-destructive"
-                    onClick={() => handleDelete(madhab.id)}
+                    onClick={() => handleDeleteClick(madhab.id)}
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>
@@ -265,6 +292,18 @@ export default function AdminMadhabs() {
           ))}
         </div>
       )}
+
+      {/* Delete Confirmation Dialog */}
+      <ConfirmDialog
+        open={deleteDialogOpen}
+        onOpenChange={setDeleteDialogOpen}
+        title="Hapus Madhab"
+        description="Apakah Anda yakin ingin menghapus madhab ini? Tindakan ini tidak dapat dibatalkan."
+        confirmText="Hapus"
+        cancelText="Batal"
+        onConfirm={handleDeleteConfirm}
+        variant="destructive"
+      />
     </div>
   );
 }

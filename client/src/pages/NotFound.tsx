@@ -1,52 +1,66 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
-import { useLocation } from "wouter";
+import { Home, Search } from "lucide-react";
+import { Link } from "wouter";
 
 export default function NotFound() {
-  const [, setLocation] = useLocation();
-
-  const handleGoHome = () => {
-    setLocation("/");
-  };
-
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
-              <AlertCircle className="relative h-16 w-16 text-red-500" />
-            </div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 via-background to-secondary/10 px-4">
+      <div className="max-w-2xl w-full text-center space-y-8 animate-fade-in-up">
+        {/* 404 Number */}
+        <div className="relative">
+          <h1 className="text-[150px] md:text-[200px] font-heading font-bold gradient-text leading-none">
+            404
+          </h1>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-32 h-32 md:w-40 md:h-40 bg-primary/10 rounded-full blur-3xl animate-pulse" />
           </div>
+        </div>
 
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">404</h1>
-
-          <h2 className="text-xl font-semibold text-slate-700 mb-4">
-            Page Not Found
+        {/* Message */}
+        <div className="space-y-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+            Halaman Tidak Ditemukan
           </h2>
-
-          <p className="text-slate-600 mb-8 leading-relaxed">
-            Sorry, the page you are looking for doesn't exist.
-            <br />
-            It may have been moved or deleted.
+          <p className="text-lg text-muted-foreground max-w-md mx-auto">
+            Maaf, halaman yang Anda cari tidak dapat ditemukan. Halaman mungkin telah dipindahkan atau tidak pernah ada.
           </p>
+        </div>
 
-          <div
-            id="not-found-button-group"
-            className="flex flex-col sm:flex-row gap-3 justify-center"
-          >
-            <Button
-              onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              <Home className="w-4 h-4 mr-2" />
-              Go Home
-            </Button>
+        {/* Actions */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+          <Button size="lg" asChild className="group">
+            <Link href="/">
+              <Home className="mr-2 h-5 w-5" />
+              Kembali ke Beranda
+            </Link>
+          </Button>
+          
+          <Button size="lg" variant="outline" asChild className="group">
+            <Link href="/materi-fiqih">
+              <Search className="mr-2 h-5 w-5" />
+              Cari Materi Fiqih
+            </Link>
+          </Button>
+        </div>
+
+        {/* Helpful Links */}
+        <div className="pt-8 border-t border-border">
+          <p className="text-sm text-muted-foreground mb-4">
+            Atau kunjungi halaman berikut:
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/dashboard" className="text-sm text-primary hover:underline">
+              Pertanyaan Saya
+            </Link>
+            <Link href="/lokasi" className="text-sm text-primary hover:underline">
+              Lokasi KUA
+            </Link>
+            <Link href="/kontak" className="text-sm text-primary hover:underline">
+              Kontak Kami
+            </Link>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }

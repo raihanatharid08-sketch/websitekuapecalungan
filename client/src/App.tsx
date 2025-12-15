@@ -20,6 +20,8 @@ import AdminDashboard from "./pages/admin/Dashboard";
 import AdminQuestions from "./pages/admin/Questions";
 import AdminCategories from "./pages/admin/Categories";
 import AdminMadhabs from "./pages/admin/Madhabs";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 function Router() {
   return (
@@ -33,6 +35,8 @@ function Router() {
       <Route path="/dashboard" component={UserDashboard} />
       <Route path="/login" component={Login} />
       <Route path="/materi-fiqih" component={FiqihMaterials} />
+      <Route path="/kebijakan-privasi" component={PrivacyPolicy} />
+      <Route path="/syarat-ketentuan" component={TermsOfService} />
 
       <Route path="/submit-question" component={SubmitQuestion} />
       <Route path="/my-question/:token" component={MyQuestion} />

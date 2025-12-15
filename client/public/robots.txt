@@ -1,0 +1,11 @@
+# robots.txt for KUA Pecalungan Website
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /user/login
+Disallow: /login
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://websitekuapecalungan02.vercel.app/sitemap.xml
