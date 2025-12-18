@@ -75,8 +75,7 @@ export default function FiqihMaterials() {
                 Pelajari Fiqih Islam dengan Dalil yang Shahih
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                Materi fiqih komprehensif dilengkapi dengan dalil Al-Qur'an, Hadits Shahih, 
-                dan pendapat ulama dari empat madhab utama
+                Materi fiqih komprehensif dilengkapi dengan dalil Al-Qur'an dan Hadits Shahih
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Badge variant="outline" className="px-4 py-2">
@@ -217,11 +216,7 @@ export default function FiqihMaterials() {
                         <Badge variant="outline" className="text-xs">
                           {topic.hadithDalil.length} Hadits
                         </Badge>
-                        {topic.madhabPerspectives && (
-                          <Badge variant="outline" className="text-xs">
-                            4 Madhab
-                          </Badge>
-                        )}
+
                       </div>
                     </CardContent>
                   </Card>
@@ -316,36 +311,6 @@ export default function FiqihMaterials() {
                   ))}
                 </CardContent>
               </Card>
-
-              {/* Madhab Perspectives */}
-              {topic.madhabPerspectives && (
-                <Card className="mb-6 animate-fade-in-up" style={{ animationDelay: "400ms" }}>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <BookOpen className="h-5 w-5 text-primary" />
-                      Pendapat Ulama Madhab
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <Accordion type="single" collapsible className="w-full">
-                      {topic.madhabPerspectives.map((perspective, index) => (
-                        <AccordionItem key={index} value={`madhab-${index}`}>
-                          <AccordionTrigger className="hover:text-primary">
-                            <div className="flex items-center gap-2">
-                              <Badge variant="outline">{perspective.madhab}</Badge>
-                            </div>
-                          </AccordionTrigger>
-                          <AccordionContent>
-                            <p className="text-foreground leading-relaxed pl-4 border-l-2 border-primary">
-                              {perspective.opinion}
-                            </p>
-                          </AccordionContent>
-                        </AccordionItem>
-                      ))}
-                    </Accordion>
-                  </CardContent>
-                </Card>
-              )}
 
               {/* Practical Example */}
               {topic.practicalExample && (

@@ -60,7 +60,8 @@ export default function MyQuestion() {
           content,
           created_at,
           published_at,
-          sources
+          sources,
+          status
         )
       `)
       .eq("access_token", token)
@@ -71,6 +72,12 @@ export default function MyQuestion() {
       setNotFound(true);
       toast.error("Pertanyaan tidak ditemukan");
     } else {
+      // Filter only published answers on client side
+      if (data.answers) {
+        data.answers = data.answers.filter((a: any) => a.status === "published");
+      }
+      console.log("Question data:", data);
+      console.log("Published answers:", data?.answers);
       setQuestion(data);
     }
     setLoading(false);

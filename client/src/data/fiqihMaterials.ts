@@ -14,10 +14,6 @@ export interface FiqihTopic {
     source: string;
     narrator: string;
   }[];
-  madhabPerspectives?: {
-    madhab: string;
-    opinion: string;
-  }[];
   practicalExample?: string;
 }
 
@@ -67,24 +63,6 @@ export const fiqihCategories: FiqihCategory[] = [
             narrator: "Umar bin Khattab radhiyallahu 'anhu"
           }
         ],
-        madhabPerspectives: [
-          {
-            madhab: "Hanafi",
-            opinion: "Waktu Ashar dimulai ketika bayangan suatu benda menjadi dua kali lipat panjangnya ditambah bayangan aslinya."
-          },
-          {
-            madhab: "Syafi'i",
-            opinion: "Waktu Ashar dimulai ketika bayangan suatu benda sama dengan panjangnya ditambah bayangan aslinya."
-          },
-          {
-            madhab: "Maliki",
-            opinion: "Mengutamakan shalat berjamaah di masjid dan menganggapnya sebagai sunnah muakkad."
-          },
-          {
-            madhab: "Hanbali",
-            opinion: "Shalat berjamaah hukumnya wajib 'ain bagi laki-laki yang mampu."
-          }
-        ],
         practicalExample: "Seorang Muslim yang bekerja harus tetap menjaga shalat lima waktu. Jika sedang dalam perjalanan jauh, boleh menjamak (menggabungkan) shalat Zhuhur dengan Ashar, dan Maghrib dengan Isya, serta mengqashar (meringkas) shalat empat rakaat menjadi dua rakaat."
       },
       {
@@ -116,24 +94,6 @@ export const fiqihCategories: FiqihCategory[] = [
             text: "إِذَا جَاءَ رَمَضَانُ فُتِّحَتْ أَبْوَابُ الْجَنَّةِ وَغُلِّقَتْ أَبْوَابُ النَّارِ وَصُفِّدَتِ الشَّيَاطِينُ",
             source: "Shahih Bukhari dan Muslim",
             narrator: "Abu Hurairah radhiyallahu 'anhu"
-          }
-        ],
-        madhabPerspectives: [
-          {
-            madhab: "Hanafi",
-            opinion: "Orang yang berbuka dengan sengaja tanpa uzur wajib mengqadha dan membayar kaffarah (memerdekakan budak atau puasa 60 hari berturut-turut)."
-          },
-          {
-            madhab: "Syafi'i",
-            opinion: "Kaffarah hanya wajib jika berbuka dengan jimak (hubungan suami istri), sedangkan berbuka dengan makan/minum hanya wajib qadha."
-          },
-          {
-            madhab: "Maliki",
-            opinion: "Menelan ludah yang terkumpul di mulut tidak membatalkan puasa."
-          },
-          {
-            madhab: "Hanbali",
-            opinion: "Bekam (berbekam) membatalkan puasa bagi yang membekam maupun yang dibekam."
           }
         ],
         practicalExample: "Seorang pekerja yang berpuasa harus menahan diri dari makan dan minum sejak adzan subuh hingga adzan maghrib. Jika sakit atau dalam perjalanan jauh yang menyulitkan, boleh berbuka dan mengqadha di hari lain."
@@ -169,24 +129,6 @@ export const fiqihCategories: FiqihCategory[] = [
             narrator: "Anas bin Malik radhiyallahu 'anhu"
           }
         ],
-        madhabPerspectives: [
-          {
-            madhab: "Hanafi",
-            opinion: "Zakat harta perdagangan wajib dikeluarkan dari nilai barang dagangan yang telah mencapai nisab."
-          },
-          {
-            madhab: "Syafi'i",
-            opinion: "Nisab emas adalah 20 dinar (85 gram) dan perak 200 dirham (595 gram), dengan kadar zakat 2.5%."
-          },
-          {
-            madhab: "Maliki",
-            opinion: "Zakat pertanian yang diairi dengan air hujan adalah 10%, sedangkan yang diairi dengan irigasi adalah 5%."
-          },
-          {
-            madhab: "Hanbali",
-            opinion: "Zakat fitrah wajib dikeluarkan sebelum shalat Idul Fitri, jika terlambat menjadi sedekah biasa."
-          }
-        ],
         practicalExample: "Seseorang yang memiliki emas 100 gram (sudah mencapai nisab 85 gram) dan telah dimiliki selama 1 tahun (haul), wajib mengeluarkan zakat sebesar 2.5% x 100 gram = 2.5 gram emas atau uang senilai itu untuk diberikan kepada mustahik."
       },
       {
@@ -218,24 +160,6 @@ export const fiqihCategories: FiqihCategory[] = [
             text: "الْحَجُّ الْمَبْرُورُ لَيْسَ لَهُ جَزَاءٌ إِلَّا الْجَنَّةُ",
             source: "Shahih Bukhari dan Muslim",
             narrator: "Abu Hurairah radhiyallahu 'anhu"
-          }
-        ],
-        madhabPerspectives: [
-          {
-            madhab: "Hanafi",
-            opinion: "Wanita yang berhaji harus disertai mahram atau suami, atau bersama rombongan wanita yang terpercaya."
-          },
-          {
-            madhab: "Syafi'i",
-            opinion: "Mahram adalah syarat wajib bagi wanita yang akan melaksanakan haji."
-          },
-          {
-            madhab: "Maliki",
-            opinion: "Tawaf ifadhah adalah rukun haji yang paling utama."
-          },
-          {
-            madhab: "Hanbali",
-            opinion: "Wukuf di Arafah adalah rukun haji yang paling agung, tanpanya haji tidak sah."
           }
         ],
         practicalExample: "Seorang Muslim yang telah memiliki biaya cukup, sehat jasmani, dan aman perjalanannya wajib menunaikan haji. Jika berhalangan, boleh mewakilkan kepada orang lain yang telah menunaikan haji untuk dirinya sendiri."
@@ -279,24 +203,6 @@ export const fiqihCategories: FiqihCategory[] = [
             narrator: "Hakim bin Hizam radhiyallahu 'anhu"
           }
         ],
-        madhabPerspectives: [
-          {
-            madhab: "Hanafi",
-            opinion: "Khiyar majelis (hak membatalkan akad selama masih di tempat akad) tidak berlaku, yang ada hanya khiyar syarat."
-          },
-          {
-            madhab: "Syafi'i",
-            opinion: "Khiyar majelis berlaku selama kedua belah pihak belum berpisah dari tempat akad."
-          },
-          {
-            madhab: "Maliki",
-            opinion: "Jual beli salam (pesanan) dibolehkan dengan syarat barang disebutkan spesifikasinya dengan jelas."
-          },
-          {
-            madhab: "Hanbali",
-            opinion: "Menjual barang yang belum diterima (qabdh) hukumnya tidak sah."
-          }
-        ],
         practicalExample: "Seseorang membeli mobil bekas dari showroom dengan harga Rp 150 juta. Akad jual beli sah jika ada ijab qabul, barang dan harga jelas, kedua pihak cakap hukum, dan tidak ada unsur penipuan. Pembeli berhak memeriksa kondisi mobil (khiyar aib) sebelum menerima secara final."
       },
       {
@@ -328,24 +234,6 @@ export const fiqihCategories: FiqihCategory[] = [
             text: "مَنْ أَنْظَرَ مُعْسِرًا أَوْ وَضَعَ عَنْهُ أَظَلَّهُ اللَّهُ فِي ظِلِّهِ",
             source: "Shahih Muslim",
             narrator: "Abu Qatadah radhiyallahu 'anhu"
-          }
-        ],
-        madhabPerspectives: [
-          {
-            madhab: "Hanafi",
-            opinion: "Hutang yang sudah jatuh tempo wajib segera dibayar, dan boleh dipaksa melalui hakim."
-          },
-          {
-            madhab: "Syafi'i",
-            opinion: "Memberikan tambahan saat melunasi hutang tanpa diperjanjikan sebelumnya adalah boleh dan termasuk akhlak terpuji."
-          },
-          {
-            madhab: "Maliki",
-            opinion: "Menuliskan hutang piutang dan mempersaksikannya adalah sunnah muakkad untuk menghindari perselisihan."
-          },
-          {
-            madhab: "Hanbali",
-            opinion: "Orang yang meninggal dengan meninggalkan hutang, maka hutangnya harus dilunasi dari harta peninggalannya sebelum dibagi waris."
           }
         ],
         practicalExample: "Ahmad meminjam uang Rp 10 juta kepada Budi untuk modal usaha dengan kesepakatan dikembalikan dalam 6 bulan. Akad ini sah dan Ahmad wajib mengembalikan Rp 10 juta (tidak boleh ada tambahan/bunga). Jika Ahmad kesulitan, Budi dianjurkan memberi keringanan atau bahkan membebaskan sebagian hutang."
@@ -389,24 +277,6 @@ export const fiqihCategories: FiqihCategory[] = [
             narrator: "Aisyah radhiyallahu 'anha"
           }
         ],
-        madhabPerspectives: [
-          {
-            madhab: "Hanafi",
-            opinion: "Wali tidak menjadi rukun nikah, perempuan dewasa yang berakal boleh menikahkan dirinya sendiri."
-          },
-          {
-            madhab: "Syafi'i",
-            opinion: "Wali adalah rukun nikah yang tidak sah tanpanya, sesuai hadits 'Tidak sah nikah kecuali dengan wali'."
-          },
-          {
-            madhab: "Maliki",
-            opinion: "Mahar (maskawin) adalah hak istri yang wajib diberikan oleh suami, boleh berupa uang, barang, atau jasa."
-          },
-          {
-            madhab: "Hanbali",
-            opinion: "Saksi nikah minimal dua orang laki-laki yang adil, atau satu laki-laki dan dua perempuan."
-          }
-        ],
         practicalExample: "Ahmad ingin menikahi Fatimah. Syarat sahnya nikah: ada calon suami (Ahmad), calon istri (Fatimah), wali (ayah Fatimah), dua saksi, ijab qabul, dan mahar. Akad nikah dilakukan dengan ijab dari wali 'Saya nikahkan anak saya Fatimah dengan Ahmad dengan mahar Rp 10 juta' dan qabul dari Ahmad 'Saya terima nikahnya'."
       },
       {
@@ -438,24 +308,6 @@ export const fiqihCategories: FiqihCategory[] = [
             text: "كُلُّ طَلَاقٍ جَائِزٌ إِلَّا طَلَاقَ الْمَعْتُوهِ الْمَغْلُوبِ عَلَى عَقْلِهِ",
             source: "Sunan Ibnu Majah",
             narrator: "Ali bin Abi Thalib radhiyallahu 'anhu"
-          }
-        ],
-        madhabPerspectives: [
-          {
-            madhab: "Hanafi",
-            opinion: "Talak tiga sekaligus jatuh tiga dan tidak boleh rujuk kecuali dengan muhallil (menikah dengan laki-laki lain terlebih dahulu)."
-          },
-          {
-            madhab: "Syafi'i",
-            opinion: "Talak yang dijatuhkan dalam keadaan marah yang tidak menghilangkan akal tetap jatuh dan sah."
-          },
-          {
-            madhab: "Maliki",
-            opinion: "Talak bid'i (talak saat istri sedang haid atau dalam keadaan suci namun sudah digauli) adalah haram dan berdosa, namun tetap jatuh."
-          },
-          {
-            madhab: "Hanbali",
-            opinion: "Masa iddah talak bagi wanita yang masih haid adalah tiga kali suci, bagi hamil sampai melahirkan, bagi menopause tiga bulan."
           }
         ],
         practicalExample: "Suami menjatuhkan talak satu kepada istrinya dengan ucapan 'Aku ceraikan kamu'. Talak ini jatuh dan istri memasuki masa iddah 3 kali suci. Selama iddah, suami masih boleh rujuk tanpa akad baru. Jika masa iddah selesai dan tidak rujuk, maka talak menjadi ba'in dan jika ingin kembali harus dengan akad nikah baru."
@@ -497,24 +349,6 @@ export const fiqihCategories: FiqihCategory[] = [
             text: "تَعَلَّمُوا الْفَرَائِضَ وَعَلِّمُوهَا النَّاسَ فَإِنَّهَا نِصْفُ الْعِلْمِ",
             source: "Sunan Ibnu Majah",
             narrator: "Abdullah bin Mas'ud radhiyallahu 'anhu"
-          }
-        ],
-        madhabPerspectives: [
-          {
-            madhab: "Hanafi",
-            opinion: "Jika ada sisa harta setelah dibagi kepada ashhabul furudh, maka sisa tersebut untuk ashabah (kerabat laki-laki dari garis ayah)."
-          },
-          {
-            madhab: "Syafi'i",
-            opinion: "Anak perempuan tunggal mendapat 1/2, dua anak perempuan atau lebih mendapat 2/3, sisanya untuk ashabah."
-          },
-          {
-            madhab: "Maliki",
-            opinion: "Kakek dapat menggantikan posisi ayah jika ayah sudah meninggal, namun tidak dapat menghalangi saudara kandung."
-          },
-          {
-            madhab: "Hanbali",
-            opinion: "Jika tidak ada ahli waris sama sekali, maka harta masuk ke Baitul Mal (kas negara)."
           }
         ],
         practicalExample: "Seorang laki-laki meninggal meninggalkan harta Rp 600 juta, istri, 2 anak laki-laki, dan 1 anak perempuan. Pembagian: Istri mendapat 1/8 (Rp 75 juta), sisanya Rp 525 juta dibagi untuk anak-anak dengan perbandingan 2:1 (laki-laki:perempuan). Masing-masing anak laki-laki mendapat Rp 210 juta, anak perempuan mendapat Rp 105 juta."
