@@ -16,10 +16,10 @@ export default function Contact() {
           <div className="container relative z-10">
             <div className="max-w-3xl mx-auto text-center animate-fade-in-up">
               <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-                Kontak & Lokasi Kami
+                Hubungi Kami
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground">
-                Kunjungi kantor KUA Pecalungan untuk konsultasi langsung atau hubungi kami melalui kontak yang tersedia
+                Hubungi KUA Pecalungan untuk konsultasi atau kunjungi kantor kami
               </p>
             </div>
           </div>

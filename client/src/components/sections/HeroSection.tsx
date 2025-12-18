@@ -21,14 +21,13 @@ export default function HeroSection() {
               <span className="text-sm font-medium text-primary">Terpercaya & Profesional</span>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Konsultasi Hukum Islam Terpercaya Dari{" "}
+            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              Konsultasi Hukum Islam{" "}
               <span className="gradient-text">KUA Pecalungan</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              Tanya jawab fiqih dengan ulama berpengalaman untuk menjawab pertanyaan agama Anda. 
-              Dapatkan jawaban yang komprehensif berdasarkan Al-Qur'an dan Hadits.
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Tanya jawab fiqih dengan ulama berpengalaman berdasarkan Al-Qur'an dan Hadits.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

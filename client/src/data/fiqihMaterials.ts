@@ -463,65 +463,6 @@ export const fiqihCategories: FiqihCategory[] = [
     ]
   },
   {
-    id: "jinayah",
-    title: "Fiqih Jinayah",
-    description: "Hukum pidana Islam yang mengatur sanksi atas tindak kejahatan",
-    icon: "⚖️",
-    topics: [
-      {
-        id: "hudud",
-        title: "Hudud",
-        description: "Hukuman yang telah ditentukan kadarnya oleh syariat",
-        content: "Hudud adalah hukuman yang telah ditentukan oleh Allah SWT dalam Al-Qur'an dan Sunnah, tidak boleh dikurangi atau ditambah. Hudud bertujuan untuk menjaga lima hal pokok (dharuriyat al-khamsah): agama, jiwa, akal, keturunan, dan harta. Contoh hudud: hukuman zina, pencurian, perampokan, minum khamr, dan qadzaf (menuduh zina).",
-        quranDalil: [
-          {
-            ayah: "ٱلزَّانِيَةُ وَٱلزَّانِى فَٱجْلِدُوا۟ كُلَّ وَٰحِدٍۢ مِّنْهُمَا مِا۟ئَةَ جَلْدَةٍۢ",
-            surah: "An-Nur",
-            number: "24:2",
-            translation: "Pezina perempuan dan pezina laki-laki, deralah masing-masing dari keduanya seratus kali."
-          },
-          {
-            ayah: "وَٱلسَّارِقُ وَٱلسَّارِقَةُ فَٱقْطَعُوٓا۟ أَيْدِيَهُمَا جَزَآءًۢ بِمَا كَسَبَا نَكَٰلًۭا مِّنَ ٱللَّهِ",
-            surah: "Al-Maidah",
-            number: "5:38",
-            translation: "Adapun orang laki-laki maupun perempuan yang mencuri, potonglah tangan keduanya (sebagai) balasan atas perbuatan yang mereka lakukan dan sebagai siksaan dari Allah."
-          }
-        ],
-        hadithDalil: [
-          {
-            text: "ٱدْرَءُوا ٱلْحُدُودَ بِٱلشُّبُهَاتِ",
-            source: "Sunan At-Tirmidzi",
-            narrator: "Aisyah radhiyallahu 'anha"
-          },
-          {
-            text: "لَا يَحِلُّ دَمُ امْرِئٍ مُسْلِمٍ إِلَّا بِإِحْدَى ثَلَاثٍ: الثَّيِّبُ الزَّانِي، وَالنَّفْسُ بِالنَّفْسِ، وَالتَّارِكُ لِدِينِهِ الْمُفَارِقُ لِلْجَمَاعَةِ",
-            source: "Shahih Bukhari dan Muslim",
-            narrator: "Abdullah bin Mas'ud radhiyallahu 'anhu"
-          }
-        ],
-        madhabPerspectives: [
-          {
-            madhab: "Hanafi",
-            opinion: "Hukuman potong tangan untuk pencuri adalah memotong tangan kanan dari pergelangan, dan jika mengulangi dipotong kaki kiri."
-          },
-          {
-            madhab: "Syafi'i",
-            opinion: "Syarat pencurian yang dikenai had: barang yang dicuri senilai nisab (seperempat dinar emas), dari tempat penyimpanan, dan tidak ada syubhat."
-          },
-          {
-            madhab: "Maliki",
-            opinion: "Hukuman zina untuk yang sudah menikah (muhshan) adalah rajam (dilempari batu hingga mati)."
-          },
-          {
-            madhab: "Hanbali",
-            opinion: "Had qadzaf (menuduh zina tanpa bukti) adalah 80 kali cambuk dan ditolak kesaksiannya selamanya kecuali bertaubat."
-          }
-        ],
-        practicalExample: "Seseorang mencuri barang senilai 1 juta rupiah (sudah mencapai nisab) dari toko yang terkunci. Jika terbukti dengan bukti yang kuat (pengakuan atau saksi), maka dikenai hukuman potong tangan. Namun jika ada syubhat (keraguan), misalnya dia mengaku barang itu miliknya, maka had tidak dilaksanakan."
-      }
-    ]
-  },
-  {
     id: "mawaris",
     title: "Fiqih Mawaris",
     description: "Hukum pembagian harta warisan menurut syariat Islam",
