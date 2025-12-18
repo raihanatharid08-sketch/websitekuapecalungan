@@ -59,11 +59,6 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
       href: "/admin/categories",
       icon: BookOpen,
     },
-    {
-      label: "Madhab",
-      href: "/admin/madhabs",
-      icon: Users,
-    },
   ];
 
   return (

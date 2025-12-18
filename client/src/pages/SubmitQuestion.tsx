@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { supabase } from "@/lib/supabase";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -29,6 +30,7 @@ export default function SubmitQuestion() {
     title: "",
     description: "",
     contact_email: "",
+    allow_publish: false,
   });
 
   useEffect(() => {
@@ -100,6 +102,7 @@ export default function SubmitQuestion() {
         title: "",
         description: "",
         contact_email: "",
+        allow_publish: false,
       });
     } catch (error: any) {
       console.error("Error submitting question:", error);
@@ -256,6 +259,28 @@ export default function SubmitQuestion() {
                     <p className="text-xs text-muted-foreground">
                       Jawaban akan dikirim ke email ini. Identitas Anda akan dirahasiakan.
                     </p>
+                  </div>
+
+                  {/* Privacy Option */}
+                  <div className="flex items-start space-x-3 rounded-lg border p-4 bg-muted/30">
+                    <Checkbox
+                      id="allow_publish"
+                      checked={formData.allow_publish}
+                      onCheckedChange={(checked) =>
+                        setFormData({ ...formData, allow_publish: checked as boolean })
+                      }
+                    />
+                    <div className="space-y-1 leading-none">
+                      <Label
+                        htmlFor="allow_publish"
+                        className="text-sm font-medium cursor-pointer"
+                      >
+                        Izinkan pertanyaan ini dipublikasikan sebagai FAQ
+                      </Label>
+                      <p className="text-xs text-muted-foreground">
+                        Jika dicentang, pertanyaan dan jawaban Anda dapat ditampilkan di halaman FAQ untuk membantu pengguna lain. <strong>Nama Anda tidak akan ditampilkan</strong> (anonim).
+                      </p>
+                    </div>
                   </div>
 
                   {/* Submit Button */}

@@ -44,22 +44,15 @@ interface Category {
   name: string;
 }
 
-interface Madhab {
-  id: string;
-  name: string;
-}
-
 export default function AdminQuestions() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [madhabs, setMadhabs] = useState<Madhab[]>([]);
   const [loading, setLoading] = useState(true);
   const [filterStatus, setFilterStatus] = useState<string>("all");
   const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(null);
   const [answerDialogOpen, setAnswerDialogOpen] = useState(false);
   const [answerForm, setAnswerForm] = useState({
     content: "",
-    madhab_id: "",
     sources: "",
   });
   const [submitting, setSubmitting] = useState(false);
@@ -67,7 +60,6 @@ export default function AdminQuestions() {
   useEffect(() => {
     loadQuestions();
     loadCategories();
-    loadMadhabs();
   }, [filterStatus]);
 
   const loadQuestions = async () => {
@@ -106,17 +98,13 @@ export default function AdminQuestions() {
     if (data) setCategories(data);
   };
 
-  const loadMadhabs = async () => {
-    const { data } = await supabase.from("madhabs").select("*");
-    if (data) setMadhabs(data);
-  };
+
 
   const handleAnswerQuestion = (question: Question) => {
     setSelectedQuestion(question);
     setAnswerDialogOpen(true);
     setAnswerForm({
       content: "",
-      madhab_id: "",
       sources: "",
     });
   };
@@ -149,7 +137,7 @@ export default function AdminQuestions() {
           question_id: selectedQuestion.id,
           admin_id: user.id,
           content: answerForm.content,
-          madhab_id: answerForm.madhab_id || null,
+          madhab_id: null,
           sources: sources.length > 0 ? sources : null,
           status: "published",
           published_at: new Date().toISOString(),
@@ -396,28 +384,6 @@ export default function AdminQuestions() {
                 rows={12}
                 className="resize-none font-mono text-sm"
               />
-            </div>
-
-            {/* Madhab */}
-            <div className="space-y-2">
-              <Label htmlFor="madhab">Madhab</Label>
-              <Select
-                value={answerForm.madhab_id}
-                onValueChange={(value) =>
-                  setAnswerForm({ ...answerForm, madhab_id: value })
-                }
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder="Pilih madhab (opsional)" />
-                </SelectTrigger>
-                <SelectContent>
-                  {madhabs.map((madhab) => (
-                    <SelectItem key={madhab.id} value={madhab.id}>
-                      {madhab.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
             </div>
 
             {/* Sources */}

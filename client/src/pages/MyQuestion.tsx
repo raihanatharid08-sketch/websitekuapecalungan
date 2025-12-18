@@ -34,7 +34,6 @@ interface Question {
     created_at: string;
     published_at: string;
     sources: any;
-    madhabs: { name: string };
   }>;
 }
 
@@ -61,8 +60,7 @@ export default function MyQuestion() {
           content,
           created_at,
           published_at,
-          sources,
-          madhabs (name)
+          sources
         )
       `)
       .eq("access_token", token)
@@ -244,7 +242,7 @@ export default function MyQuestion() {
                       month: "long",
                       year: "numeric"
                     })}
-                    {answer.madhabs && ` • Madhab: ${answer.madhabs.name}`}
+
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-6">
