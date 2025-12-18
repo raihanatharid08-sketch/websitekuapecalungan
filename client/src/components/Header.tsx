@@ -11,8 +11,7 @@ export default function Header() {
     { label: "Beranda", href: "/" },
     { label: "Materi Fiqih", href: "/materi-fiqih" },
     { label: "Pertanyaan Saya", href: "/dashboard" },
-    { label: "Lokasi", href: "/lokasi" },
-    { label: "Kontak", href: "/kontak" },
+    { label: "Kontak & Lokasi", href: "/kontak" },
   ];
 
   return (

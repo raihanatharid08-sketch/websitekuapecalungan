@@ -11,7 +11,7 @@ import Login from "./pages/Login";
 import FiqihMaterials from "./pages/FiqihMaterials";
 import SubmitQuestion from "./pages/SubmitQuestion";
 import MyQuestion from "./pages/MyQuestion";
-import Location from "./pages/Location";
+import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
 import Register from "./pages/Register";
 import UserLogin from "./pages/UserLogin";
@@ -27,8 +27,9 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/lokasi" component={Location} />
-      <Route path="/kontak" component={AboutUs} />
+      <Route path="/lokasi" component={Contact} />
+      <Route path="/kontak" component={Contact} />
+
       <Route path="/tentang-kami" component={AboutUs} /> {/* Redirect old URL */}
       <Route path="/user/register" component={Register} />
       <Route path="/user/login" component={UserLogin} />

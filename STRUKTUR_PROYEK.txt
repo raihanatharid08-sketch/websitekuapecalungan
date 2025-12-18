@@ -1,0 +1,114 @@
+.
+├── ADMIN_SETUP_INSTRUCTIONS.md
+├── AUTH_SETUP_GUIDE.md
+├── CHANGES_SUMMARY.md
+├── CREATE_ADMIN_USER_GUIDE.md
+├── DEPLOYMENT.md
+├── DEPLOYMENT_ISSUE_ANALYSIS.md
+├── DESIGN_CHANGES_SUMMARY.md
+├── DEVELOPMENT_SETUP.md
+├── FINAL_REVISION_RESULTS.md
+├── LOGIN_TROUBLESHOOTING.md
+├── MATERI_FIQIH_ANALYSIS.md
+├── MIGRATION_GUIDE.md
+├── MIGRATION_REPORT.md
+├── PANDUAN_EDITING.md
+├── README.md
+├── REVISION_TEST_RESULTS.md
+├── STRUKTUR_PROYEK.txt
+├── SUPABASE_CONNECTION_STATUS.md
+├── SUPABASE_SETUP.md
+├── SUPABASE_USER_ROLES_GUIDE.md
+├── VERCEL_DEPLOYMENT_GUIDE.md
+├── VERCEL_ENV_VARIABLES.txt
+├── client
+│   ├── index.html
+│   ├── public
+│   │   ├── community-character.png
+│   │   ├── consultation-character.png
+│   │   ├── favicon.png
+│   │   ├── favicon.svg
+│   │   ├── hero-bg.png
+│   │   ├── hero-character-clean.png
+│   │   ├── hero-character-nobg.png
+│   │   ├── hero-character.png
+│   │   ├── kemenag-logo.png
+│   │   ├── kua-building.png
+│   │   ├── pattern-overlay.png
+│   │   ├── robots.txt
+│   │   ├── sitemap.xml
+│   │   ├── step1-icon.png
+│   │   ├── step2-icon.png
+│   │   ├── step3-icon.png
+│   │   └── step4-icon.png
+│   └── src
+│       ├── App.tsx
+│       ├── _core
+│       ├── components
+│       ├── const.ts
+│       ├── contexts
+│       ├── data
+│       ├── hooks
+│       ├── index.css
+│       ├── lib
+│       ├── main.tsx
+│       └── pages
+├── components.json
+├── drizzle
+│   ├── 0000_friendly_puma.sql
+│   ├── meta
+│   │   ├── 0000_snapshot.json
+│   │   └── _journal.json
+│   ├── migrations
+│   ├── relations.ts
+│   └── schema.ts
+├── drizzle.config.ts
+├── ideas.md
+├── migration-01-add-privacy-fields.sql
+├── migration-02-update-policies.sql
+├── migration-03-create-admin-user.sql
+├── package.json
+├── patches
+│   └── wouter@3.7.1.patch
+├── pnpm-lock.yaml
+├── server
+│   ├── _core
+│   │   ├── context.ts
+│   │   ├── cookies.ts
+│   │   ├── dataApi.ts
+│   │   ├── env.ts
+│   │   ├── imageGeneration.ts
+│   │   ├── index.ts
+│   │   ├── llm.ts
+│   │   ├── map.ts
+│   │   ├── notification.ts
+│   │   ├── oauth.ts
+│   │   ├── sdk.ts
+│   │   ├── systemRouter.ts
+│   │   ├── trpc.ts
+│   │   ├── types
+│   │   ├── vite.ts
+│   │   └── voiceTranscription.ts
+│   ├── auth.logout.test.ts
+│   ├── db.ts
+│   ├── index.ts
+│   ├── routers.ts
+│   ├── storage.ts
+│   └── supabase.test.ts
+├── setup_supabase.py
+├── shared
+│   ├── _core
+│   │   └── errors.ts
+│   ├── const.ts
+│   └── types.ts
+├── supabase-complete-schema.sql
+├── supabase-migration.sql
+├── supabase_user_roles_setup.sql
+├── todo.md
+├── tsconfig.json
+├── tsconfig.node.json
+├── vercel.json
+├── vite.config.ts
+└── vitest.config.ts
+
+19 directories, 92 files

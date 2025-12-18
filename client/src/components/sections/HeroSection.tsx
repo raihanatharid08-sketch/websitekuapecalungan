@@ -60,12 +60,18 @@ export default function HeroSection() {
           </div>
 
           {/* Right Image */}
-          <div className="order-1 lg:order-2 hidden lg:flex justify-center animate-fade-in-right">
-            <img 
-              src="/hero-character.png" 
-              alt="KUA Pecalungan Consultant" 
-              className="w-full max-w-md h-auto object-contain drop-shadow-2xl rounded-2xl"
-            />
+          <div className="order-1 lg:order-2 hidden lg:flex justify-center items-center animate-fade-in-right">
+            <div className="relative w-full max-w-md" style={{ height: 'calc(100% - 4rem)' }}>
+              <img 
+                src="/hero-character.png" 
+                alt="KUA Pecalungan Consultant" 
+                className="w-full h-full object-contain drop-shadow-2xl"
+                style={{ 
+                  objectPosition: 'center',
+                  maxHeight: '550px'
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
