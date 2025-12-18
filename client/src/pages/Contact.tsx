@@ -34,7 +34,7 @@ export default function Contact() {
                 <Card className="overflow-hidden h-full">
                   <CardContent className="p-0 h-[450px] lg:h-full min-h-[500px]">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.52!2d109.72651!3d-6.90886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7024d1c1d1c1d1%3A0x5e5e5e5e5e5e5e5e!2sKantor%20Urusan%20Agama%20(KUA)%20Pecalungan!5e0!3m2!1sid!2sid!4v1734498744000!5m2!1sid!2sid"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.52!2d109.72651!3d-6.90886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7024d1c1d1c1d1%3A0x5e5e5e5e5e5e5e5e!2sKantor%20Urusan%20Agama%20(KUA)%20Pecalungan!5e1!3m2!1sid!2sid!4v1734499828000!5m2!1sid!2sid"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}

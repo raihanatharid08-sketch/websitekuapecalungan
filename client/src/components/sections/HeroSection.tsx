@@ -58,7 +58,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Image */}
+          {/* Right Image - Desktop */}
           <div className="order-1 lg:order-2 hidden lg:flex justify-center items-center animate-fade-in-right">
             <div className="relative w-full max-w-md" style={{ height: 'calc(100% - 4rem)' }}>
               <img 
@@ -68,6 +68,20 @@ export default function HeroSection() {
                 style={{ 
                   objectPosition: 'center',
                   maxHeight: '550px'
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Mobile Image - Below CTA buttons */}
+          <div className="lg:hidden flex justify-center items-center mt-8 animate-fade-in-up">
+            <div className="relative w-full max-w-xs">
+              <img 
+                src="/hero-character.png" 
+                alt="KUA Pecalungan Consultant" 
+                className="w-full h-auto object-contain drop-shadow-2xl"
+                style={{ 
+                  maxHeight: '300px'
                 }}
               />
             </div>
